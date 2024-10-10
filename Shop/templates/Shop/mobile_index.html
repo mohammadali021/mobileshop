@@ -1,0 +1,89 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="pages-bnaer text-center">
+        <div class="container">
+            <span>دسته بندی محصولات</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+    {% for mobile in mobile %}
+        <div class="col-md-4">
+            <div class="blog-content">
+                <figure>
+                    <img src="{{ mobile.Image.url }}" class="w-100" style="width: 200px ; height: 200px">
+                </figure>
+                <h5><i class="fa fa-title"></i>{{ mobile.Name }}</h5>
+                <ul>
+                    <li><i class="fa fa-bars"></i>دسته بندی : موبایل</li>
+                    {#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : {{ category.Category_Date}}</li>#}
+
+                </ul>
+                <a href="" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    </div>
+
+{% endblock %}
+
+{#            <div class="col-md-4">#}
+{#               <div class="blog-content">#}
+{#                  <figure>#}
+{#                     <img src="img/off/watch/1.jpg" class="w-100">#}
+{#                  </figure>#}
+{#                  <h5><i class="fa fa-title"></i>گوشی هوشمند جیبی</h5>#}
+{#                  <p>گوشی هوشمند جیبی تکنولوژی جدید کمپانی اپل،با خاصیت ضد آب بودن و حمل بسیار مخفی،باقابلیت حمل داخل گوش...</p>#}
+{#                  <ul>#}
+{#                     <li><i class="fa fa-bars"></i>دسته بندی : تکنولوژی</li>#}
+{#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : 97/10/20</li>#}
+{#                     <li><i class="fa fa-user-o"></i>نویسنده : سئو 90</li>#}
+{#                  </ul>#}
+{#                  <a href="#" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>	#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#               <div class="blog-content">#}
+{#                  <figure>#}
+{#                     <img src="img/off/watch/1.jpg" class="w-100">#}
+{#                  </figure>#}
+{#                  <h5><i class="fa fa-title"></i>گوشی هوشمند جیبی</h5>#}
+{#                  <p>گوشی هوشمند جیبی تکنولوژی جدید کمپانی اپل،با خاصیت ضد آب بودن و حمل بسیار مخفی،باقابلیت حمل داخل گوش...</p>#}
+{#                  <ul>#}
+{#                     <li><i class="fa fa-bars"></i>دسته بندی : تکنولوژی</li>#}
+{#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : 97/10/20</li>#}
+{#                     <li><i class="fa fa-user-o"></i>نویسنده : سئو 90</li>#}
+{#                  </ul>#}
+{#                  <a href="#" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>	#}
+{#               </div>#}
+{#            </div>#}
+{#            <div class="col-md-4">#}
+{#               <div class="blog-content">#}
+{#                  <figure>#}
+{#                     <img src="img/off/watch/1.jpg" class="w-100">#}
+{#                  </figure>#}
+{#                  <h5><i class="fa fa-title"></i>گوشی هوشمند جیبی</h5>#}
+{#                  <p>گوشی هوشمند جیبی تکنولوژی جدید کمپانی اپل،با خاصیت ضد آب بودن و حمل بسیار مخفی،باقابلیت حمل داخل گوش...</p>#}
+{#                  <ul>#}
+{#                     <li><i class="fa fa-bars"></i>دسته بندی : تکنولوژی</li>#}
+{#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : 97/10/20</li>#}
+{#                     <li><i class="fa fa-user-o"></i>نویسنده : سئو 90</li>#}
+{#                  </ul>#}
+{#                  <a href="#" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>	#}
+{#               </div>#}
+{#            </div>#}
+{#         </div>#}
+{#      </div>#}
+
+{#      <!----------------------------------> #}
+{#      <script src="js/jquery-3.3.1.js" type="text/javascript"></script>#}
+{#      <script src="js/jquery.simple.timer.js" type="text/javascript"></script>#}
+{#      <script src="js/bootstrap.js" type="text/javascript"></script>#}
+{#      <script src="js/owl.carousel.min.js" type="text/javascript"></script>#}
+{#      <script src="js/js.js" type="text/javascript"></script>#}
+{#   </body>#}
+{#</html>#}

@@ -1,0 +1,32 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="pages-bnaer text-center">
+        <div class="container">
+            <span>دسته بندی محصولات</span>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+    {% for brand in Brand %}
+        <div class="col-md-4">
+            <div class="blog-content">
+                <figure>
+                    <img src="{{ brand.Brand_Image.url }}" class="w-100" style="width: 200px ; height: 200px">
+                </figure>
+                <h5><i class="fa fa-title"></i>{{ brand.Brand_Name }}</h5>
+                <ul>
+                    <li><i class="fa fa-bars"></i>دسته بندی : موبایل</li>
+                    {#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : {{ category.Category_Date}}</li>#}
+
+                </ul>
+                <a href="{% url 'mobile_show' s=brand.slug %}" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

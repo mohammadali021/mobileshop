@@ -4,31 +4,16 @@
     موبایل شاپ
 {% endblock %}
 
+{% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="slider-box">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    {% for obj in header %}
-                        <ol class="carousel-indicators"/>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        </ol>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="slider-box">
+                    {% for obj in active_obj %}
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="col-md-6" style="padding-top: 20px;">
-                                    <h4>{{ active_obj.mobile_name }}</h4>
-                                    <span>{{ active_obj.mobile_name_fa }}</span>
-                                    <p>{{ active_obj.short_description }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="{{ active_obj.image.url }}" class="w-75">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
+                        <div class="carousel-item active">
                             <div class="col-md-6" style="padding-top: 20px;">
                                 <h4>{{ obj.mobile_name }}</h4>
                                 <span>{{ obj.mobile_name_fa }}</span>
@@ -38,58 +23,22 @@
                                 <img src="{{ obj.image.url }}" class="w-75">
                             </div>
                         </div>
-                    {% endfor %}
-
-
-                </div>
-            </div>
-        </div>
-        <!--slider-box-->
-    </div>
-</div>
-</div>
-
-
-
-{% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="slider-box">
-                    {% for obj in active_obj %}
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        </ol>
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                    <div class="col-md-6" style="padding-top: 20px;">
-                                        <h4>{{ obj.mobile_name}}</h4>
-                                        <span>{{ obj.mobile_name_fa }}</span>
-                                        <p>{{ obj.short_description }}</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="{{ obj.image.url }}" class="w-75">
-                                    </div>
-                            </div>
                         {% for dd in header %}
                             <div class="carousel-item">
                                 <div class="col-md-6" style="padding-top: 20px;">
-                                    <h4>{{ dd.mobile_name}}</h4>
-                                    <span>{{ dd.mobile_name_fa}}</span>
+                                    <h4>{{ dd.mobile_name }}</h4>
+                                    <span>{{ dd.mobile_name_fa }}</span>
                                     <p>{{ dd.short_description }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <img src="{{ dd.image.url }}" class="w-75">
                                 </div>
                             </div>
-                            {% endfor %}
-                                {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
 
 
-                        </div>
+                    </div>
                     </div>
                 </div>
 
@@ -99,6 +48,50 @@
 
         </div>
     </div>
+
+    {#    --------------------------------------------------------special opportunity------------------------------------#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="coopen">
+                    <img src="{% static 'Shop/img/coopen.png' %}" class="w-100"/>
+                </div>
+            </div>
+            {% for special in special %}
+
+
+            <div class="col-md-9">
+                <div class="vizheh">
+                    <div class="col-md-6">
+                        <div class="vizheh-img">
+                            <img src="{{ special.Image.url }}" class="w-100"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="vizheh-content">
+                            <div>
+                                <del>{{ special.Price }} تومان</del>
+                            </div>
+                            <h4>{{ special.PriceByDiscount }} تومان</h4>
+                            <h3>{{ special.Name }}</h3>
+                            <ul>
+                                <li>حافظه رم {{ special.Ram }}</li>
+                                <li>دوربین {{ special.Camera_resolution}}</li>
+                            </ul>
+                            <hr>
+                            <span>زمان باقیمانده تا پایان سفارش</span>
+                            <div class="counter" data-minutes-left="1000"></div>
+                        </div>
+                    </div>
+                    <div class="vizheh-tag">
+                        <span>فرصت ویژه</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            {% endfor %}
+
 {% endblock %}
 <!---------------------------------->
 <div class="container">
@@ -597,54 +590,7 @@
 </div>
 </div>
 <!---------------------------------->
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="footer-description">
-                    <ul>
-                        <li>تضمین اصالت کالاهای فروخته شده</li>
-                        <li>فروش برند های معتبر</li>
-                        <li>پاسخگویی 24 ساعته</li>
-                        <li>امکان پرداخت آنلاین با کارت بانکی و پرداخت در محل</li>
-                        <li>امکان بازگشت تا یک هفته در صورت عدم رضایت مشتری</li>
-                        <li>خرید آسان و مطمئن</li>
-                        <li>قیمت های مناسب</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="footer-description2">
-                    <ul>
-                        <li><i class="fa fa-truck"></i>تحویل پستی سریع</li>
-                        <li><i class="fa fa-plane"></i>ارسال با پست پیشتاز و سفارشی</li>
-                        <li><i class="fa fa-cart-arrow-down"></i>خرید آسان و راحت</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="news-form">
-                    <h5>در خبرنامه عضو شوید</h5>
-                    <form action="">
-                        <input type="email" placeholder="ایمیل خود را وارد کنید">
-                        <button type="submit"><i class="fa fa-envelope-o"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!---------------------------------->
-<div class="copy-right">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                &copy;&nbsp;&nbsp;طراحی و کدنویسی سئو 90&nbsp;&nbsp;&nbsp;&nbsp;
-                <span>info@seo90.ir</span>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!---------------------------------->
 
 </html>
