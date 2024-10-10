@@ -10,23 +10,41 @@
 
     <div class="container">
         <div class="row">
-    {% for mobile in mobile %}
-        <div class="col-md-4">
-            <div class="blog-content">
-                <figure>
-                    <img src="{{ mobile.Image.url }}" class="w-100" style="width: 200px ; height: 200px">
-                </figure>
-                <h5><i class="fa fa-title"></i>{{ mobile.Name }}</h5>
-                <ul>
-                    <li><i class="fa fa-bars"></i>دسته بندی : موبایل</li>
-                    {#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : {{ category.Category_Date}}</li>#}
+            {% for mobile in mobile %}
+                <div class="col-md-4">
+                    <div class="blog-content">
+                        <figure>
+                            <img src="{{ mobile.Image.url }}" class="w-100" style="width: 200px ; height: 200px">
+                        </figure>
+                        <h5><i class="fa fa-title"></i>{{ mobile.Name }}</h5>
+                            {% if mobile.Price_discount %}
+                        <div>
+                            <del>{{ mobile.Price }} تومان</del>
+                        </div>
+                        <h4>{{ mobile.PriceByDiscount }} تومان</h4>
+                        {% endif %}
+                            {% if mobile.Price_discount == False %}
+                                <div>
+                                    <h4>{{ mobile.Price }} تومان</h4>
+                                </div>
 
-                </ul>
-                <a href="" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>
-            </div>
+                            {% endif %}
+                        <ul>
+                            <li>حافظه رم {{ mobile.Ram }}</li>
+                            <li>دوربین {{ mobile.Camera_resolution }}</li>
+                        </ul>
+
+
+                        <ul>
+                            <li><i class="fa fa-bars"></i>دسته بندی : موبایل</li>
+                            {#                     <li><i class="fa fa-calendar-o"></i>نوشته شده در : {{ category.Category_Date}}</li>#}
+
+                        </ul>
+                        <a href="" class="mybtn"><i class="fa fa-continuous"></i>ادامه مطلب&raquo;</a>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
-    </div>
     </div>
 
 {% endblock %}

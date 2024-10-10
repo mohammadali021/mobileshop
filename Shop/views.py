@@ -10,9 +10,10 @@ def index(request):
     index_header = Header.objects.filter(active=False)
     active_object = Header.objects.filter(active=True)
     special_opportunity = Mobile.objects.filter(Special_opportunity=True)
+    mobile = Mobile.objects.all()
 
     return render(request, 'Shop/index.html',
-                  {'header': index_header, 'active_obj': active_object, 'special': special_opportunity})
+                  {'header': index_header, 'active_obj': active_object, 'special': special_opportunity , 'mobile':mobile})
 
 
 def Mobile_Category(request):
