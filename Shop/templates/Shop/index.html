@@ -60,76 +60,109 @@
             {% for special in special %}
 
 
-            <div class="col-md-9">
-                <div class="vizheh">
-                    <div class="col-md-6">
-                        <div class="vizheh-img">
-                            <img src="{{ special.Image.url }}" class="w-100"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="vizheh-content">
-                            <div>
-                                <del>{{ special.Price }} تومان</del>
+                <div class="col-md-9">
+                    <div class="vizheh">
+                        <div class="col-md-6">
+                            <div class="vizheh-img">
+                                <img src="{{ special.Image.url }}" class="w-100"/>
                             </div>
-                            <h4>{{ special.PriceByDiscount }} تومان</h4>
-                            <h3>{{ special.Name }}</h3>
-                            <ul>
-                                <li>حافظه رم {{ special.Ram }}</li>
-                                <li>دوربین {{ special.Camera_resolution}}</li>
-                            </ul>
-                            <hr>
-                            <span>زمان باقیمانده تا پایان سفارش</span>
-                            <div class="counter" data-minutes-left="1000"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="vizheh-content">
+                                <div>
+                                    <del>{{ special.Price }} تومان</del>
+                                </div>
+                                <h4>{{ special.PriceByDiscount }} تومان</h4>
+                                <h3>{{ special.Name }}</h3>
+                                <ul>
+                                    <li>حافظه رم {{ special.Ram }}</li>
+                                    <li>دوربین {{ special.Camera_resolution }}</li>
+                                </ul>
+                                <hr>
+                                <span>زمان باقیمانده تا پایان سفارش</span>
+                                <div class="counter" data-minutes-left="1000"></div>
+                            </div>
+                        </div>
+                        <div class="vizheh-tag">
+                            <span>فرصت ویژه</span>
                         </div>
                     </div>
-                    <div class="vizheh-tag">
-                        <span>فرصت ویژه</span>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                </div>
+                </div>
             {% endfor %}
-{#    ----------------------------------------------------first side product--------------------------------------#}
+    {#    ----------------------------------------------------first product--------------------------------------#}
     <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="one-slider">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="one-slider">
 
-                <h4>موبایل</h4>
-                <div class="owl-carousel owl-theme ov1">
-                    {% for mobile in mobile %}
-                    <div class="item">
-                        <figure>
-                            <a href=""><img src="{{ mobile.Image.url }}" class="w-100"/></a>
-                        </figure>
-                        <h5>{{ mobile.Name }}</h5>
-                        <span>{{ mobile.Price }}</span>
+                    <h4>موبایل</h4>
+                    <div class="owl-carousel owl-theme ov1">
+                        {% for mobile in mobile %}
+                            <div class="item">
+                                <figure>
+                                    <a href=""><img src="{{ mobile.Image.url }}" class="w-100"/></a>
+                                </figure>
+                                <h5>{{ mobile.Name }}</h5>
+                                <span>{{ mobile.Price }}</span>
+                            </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+    {#    ----------------------------------------------middle banner----------------------#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="book-baner">
+                    <a href="#"><img src="{% static 'Shop/img/Mobile_Accessory.jpg' %}" class="w-100"/></a>
+                    <h4 style="border-radius: 10px">انواع لوازم جانبی</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#    ----------------------------------------------------secend products-----------------------#}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="two-slider">
+                    <h4>لوازم جانبی</h4>
+                        <div class="owl-carousel owl-theme ov2">
+                            {% for accessory in accessory %}
+                            <div class="item">
+                                <figure>
+                                    <a href=""><img src="{{ accessory.Image.url }}" class="w-100"/></a>
+                                </figure>
+                                <h5>{{ accessory.Name }}</h5>
+                                {% if accessory.Is_active %}
+                                    {% if accessory.Price_discount == True %}
+                                    	<h5><strike>{{ accessory.Price }}</strike></h5>
+                                        <h4>{{ accessory.PriceByDiscount }}</h4>
+                                        {% else %}
+                                            <h4>{{ accessory.Price }}</h4>
+                                    {% endif %}
+                                    {% else %}
+                                    <h4>اتمام موجودی</h4>
 
+                                {% endif %}
+                            </div>
 
+                        {% endfor %}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 <!---------------------------------->
 
 <!---------------------------------->
 
 <!---------------------------------->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="book-baner">
-                <a href="#"><img src="img/book-baner.jpg" class="w-100"/></a>
-                <h4>کتاب های کنکور</h4>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!---------------------------------->
 <div class="container">
     <div class="row">

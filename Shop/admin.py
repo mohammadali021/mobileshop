@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 import Shop
-from Shop.models import Header, Mobile, Brands, Categories, Mobile_Network
+from Shop.models import Header, Mobile, Brands, Categories, Mobile_Network, Mobile_Accessory
 
 
 # Register your models here.
@@ -10,19 +10,24 @@ class ShopAdmin(admin.ModelAdmin):
     list_display = ('mobile_name', 'mobile_name_fa')
 
 
+@admin.register(Mobile_Accessory)
+class Mobile_AccessoryAdmin(admin.ModelAdmin):
+    list_display = ('Name', 'Slug')
+
+
 @admin.register(Mobile)
 class MobileAdmin(admin.ModelAdmin):
-    list_display = ('Name', 'Name_fa' , 'Slug')
+    list_display = ('Name', 'Name_fa', 'Slug')
 
 
 @admin.register(Brands)
 class BrandsAdmin(admin.ModelAdmin):
-    list_display = ['Brand_Name' , 'slug']
+    list_display = ['Brand_Name', 'slug']
 
 
 @admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ['Category_Name' , 'Category_Slug']
+    list_display = ['Category_Name', 'Category_Slug']
 
 
 @admin.register(Mobile_Network)

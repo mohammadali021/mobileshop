@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from Shop.models import Header, Mobile, Categories,Brands
+from Shop.models import Header, Mobile, Categories, Brands, Mobile_Accessory
 
 
 # Create your views here.
@@ -10,10 +10,11 @@ def index(request):
     index_header = Header.objects.filter(active=False)
     active_object = Header.objects.filter(active=True)
     special_opportunity = Mobile.objects.filter(Special_opportunity=True)
+    Accessory = Mobile_Accessory.objects.all()
     mobile = Mobile.objects.all()
 
     return render(request, 'Shop/index.html',
-                  {'header': index_header, 'active_obj': active_object, 'special': special_opportunity , 'mobile':mobile})
+                  {'header': index_header, 'active_obj': active_object, 'special': special_opportunity , 'mobile':mobile , 'accessory':Accessory})
 
 
 def Mobile_Category(request):

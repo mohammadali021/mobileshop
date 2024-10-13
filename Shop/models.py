@@ -86,5 +86,42 @@ class Mobile(models.Model):
         return super(Mobile, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = "محصولات"
-        verbose_name_plural = "محصولات"
+        verbose_name = "موبایل"
+        verbose_name_plural = "موبایل"
+
+class Mobile_Accessory(models.Model):
+    Name = models.CharField(max_length=50, verbose_name="نام محصول")
+    # Name_fa = models.CharField(max_length=50, verbose_name="نام موبایل به فارسی")
+    # Size = models.CharField(max_length=10, verbose_name="اندازه ی محصول")
+    # Network = models.ForeignKey(Mobile_Network , null=True , blank=False , on_delete=models.CASCADE , related_name='Pro_Network' , verbose_name="شبکه")
+    # Ram = models.CharField(max_length=10, verbose_name="اندازه ی حافظه رم")
+    Color = models.BooleanField(default=False, verbose_name="رنگ بندی")
+    Guarantee = models.BooleanField(default=True, verbose_name="گارانتی")
+    Special_opportunity = models.BooleanField(default=False, verbose_name="فرصت ویژه")
+    # Camera_resolution = models.CharField(max_length=100, verbose_name="رزولوشن دوربین")
+    Price = models.CharField(max_length=10,verbose_name='قیمت محصول')
+    Price_discount = models.BooleanField(default=False, verbose_name="تخفیف")
+    PriceByDiscount = models.CharField(max_length=10,null=True , blank=True,verbose_name= 'قیمت تخفیف خورده ')
+    Is_active = models.BooleanField(default=True, verbose_name='موجود')
+    Image = models.ImageField(default='', upload_to='media/', null=True, blank=True, verbose_name='تصویر محصول')
+    # Brand = models.ForeignKey(Brands, null=True, blank=False, on_delete=models.CASCADE, related_name='Pro_Brand',verbose_name='برند')
+    Category = models.ForeignKey(Categories, null=True, blank=False, on_delete=models.CASCADE,
+                                 related_name='Acces_Category', verbose_name="دسته بندی ")
+    Slug = models.SlugField(default='', null=False, db_index=True)
+
+    def __str__(self):
+        return self.Name
+
+    def save(self, *args, **kwargs):
+        self.Slug = slugify(str(self.Name))
+        return super(Mobile_Accessory, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "لوازم جانبی"
+        verbose_name_plural = "لوازم جانبی"
+
+
+
+
+
+
